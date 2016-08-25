@@ -5,6 +5,8 @@
  */
 package Interfaz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aldair
@@ -19,7 +21,7 @@ public class Ejercicio1 extends javax.swing.JFrame {
     public Ejercicio1() {
         initComponents();
        this.setLocationRelativeTo(null);
-       
+       txtLongitud.requestFocusInWindow();
        
     }
 
@@ -39,11 +41,11 @@ public class Ejercicio1 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtLongitud = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        cmdCrear = new javax.swing.JButton();
+        cmdMostrar = new javax.swing.JButton();
+        cmdLlenaM = new javax.swing.JButton();
+        cmdLlenaA = new javax.swing.JButton();
+        cmdBorrar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextArea();
@@ -81,6 +83,11 @@ public class Ejercicio1 extends javax.swing.JFrame {
                 txtLongitudActionPerformed(evt);
             }
         });
+        txtLongitud.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtLongitudKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtLongitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 140, 40));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 210, 160));
@@ -88,30 +95,50 @@ public class Ejercicio1 extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setBackground(new java.awt.Color(153, 153, 255));
-        jButton2.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jButton2.setText("Crear");
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 120, 40));
+        cmdCrear.setBackground(new java.awt.Color(153, 153, 255));
+        cmdCrear.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        cmdCrear.setText("Crear");
+        cmdCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCrearActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 120, 40));
 
-        jButton3.setBackground(new java.awt.Color(153, 153, 255));
-        jButton3.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jButton3.setText("Mostrar");
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 120, 40));
+        cmdMostrar.setBackground(new java.awt.Color(153, 153, 255));
+        cmdMostrar.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        cmdMostrar.setText("Mostrar");
+        cmdMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdMostrarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 120, 40));
 
-        jButton4.setBackground(new java.awt.Color(153, 153, 255));
-        jButton4.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jButton4.setText("Llener Manual");
-        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, 40));
+        cmdLlenaM.setBackground(new java.awt.Color(153, 153, 255));
+        cmdLlenaM.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        cmdLlenaM.setText("Llener Manual");
+        cmdLlenaM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLlenaMActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cmdLlenaM, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, 40));
 
-        jButton5.setBackground(new java.awt.Color(153, 153, 255));
-        jButton5.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jButton5.setText("Llener Auto");
-        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 120, 40));
+        cmdLlenaA.setBackground(new java.awt.Color(153, 153, 255));
+        cmdLlenaA.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        cmdLlenaA.setText("Llener Auto");
+        jPanel3.add(cmdLlenaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 120, 40));
 
-        jButton6.setBackground(new java.awt.Color(153, 153, 255));
-        jButton6.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jButton6.setText("Borrar");
-        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 120, 40));
+        cmdBorrar.setBackground(new java.awt.Color(153, 153, 255));
+        cmdBorrar.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        cmdBorrar.setText("Borrar");
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 120, 40));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 220, 350));
 
@@ -140,9 +167,60 @@ public class Ejercicio1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtLongitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLongitudActionPerformed
-        
-        
+      
     }//GEN-LAST:event_txtLongitudActionPerformed
+
+    private void cmdCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCrearActionPerformed
+        int longitud;
+        
+        if(txtLongitud.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this,"digite la longitud ","ERROR",JOptionPane.WARNING_MESSAGE);
+            txtLongitud.requestFocusInWindow();
+            
+        }else if(Integer.parseInt(txtLongitud.getText().trim())==0){
+            JOptionPane.showMessageDialog(this,"la longitud no puede ser cero ","ERROR",JOptionPane.WARNING_MESSAGE);
+            txtLongitud.requestFocusInWindow();
+            txtLongitud.selectAll();
+        }else{
+            
+           longitud=Integer.parseInt(txtLongitud.getText().trim());
+            v =new double [longitud];
+            JOptionPane.showMessageDialog(this,"vector creado exitosamente");
+        }
+            
+    }//GEN-LAST:event_cmdCrearActionPerformed
+
+    private void txtLongitudKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLongitudKeyTyped
+        char c=evt.getKeyChar(); 
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+              evt.consume(); 
+          }
+    }//GEN-LAST:event_txtLongitudKeyTyped
+
+    private void cmdLlenaMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenaMActionPerformed
+        double n;
+        for (int i = 0; i < v.length; i++) {
+          n =Double.parseDouble(JOptionPane.showInputDialog("DIGITE EL NUMERO EN LA POSICION",+i));
+          v[i]=n;  
+          
+        }
+    }//GEN-LAST:event_cmdLlenaMActionPerformed
+
+    private void cmdMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarActionPerformed
+        for (int i = 0; i < v.length; i++) {
+            txtResultado.append(v[i]+"\n");
+            
+        }
+    }//GEN-LAST:event_cmdMostrarActionPerformed
+
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+        
+        txtLongitud.setText("");
+        txtResultado.setText("");
+        txtLongitud.requestFocusInWindow();
+        
+    }//GEN-LAST:event_cmdBorrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,12 +258,12 @@ public class Ejercicio1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdBorrar;
+    private javax.swing.JButton cmdCrear;
+    private javax.swing.JButton cmdLlenaA;
+    private javax.swing.JButton cmdLlenaM;
+    private javax.swing.JButton cmdMostrar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
