@@ -128,6 +128,11 @@ public class Ejercicio1 extends javax.swing.JFrame {
         cmdLlenaA.setBackground(new java.awt.Color(153, 153, 255));
         cmdLlenaA.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         cmdLlenaA.setText("Llener Auto");
+        cmdLlenaA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLlenaAActionPerformed(evt);
+            }
+        });
         jPanel3.add(cmdLlenaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 120, 40));
 
         cmdBorrar.setBackground(new java.awt.Color(153, 153, 255));
@@ -218,9 +223,19 @@ public class Ejercicio1 extends javax.swing.JFrame {
         
         txtLongitud.setText("");
         txtResultado.setText("");
+        v = null;
         txtLongitud.requestFocusInWindow();
         
     }//GEN-LAST:event_cmdBorrarActionPerformed
+
+    private void cmdLlenaAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenaAActionPerformed
+        double n;
+        for (int i = 0; i < v.length; i++) {
+            n =(int) (Math.random()* 50 + 1);
+            v[i]=n;
+        }
+        JOptionPane.showMessageDialog(this, "Vector Llenado Correctamente");
+    }//GEN-LAST:event_cmdLlenaAActionPerformed
 
     /**
      * @param args the command line arguments
