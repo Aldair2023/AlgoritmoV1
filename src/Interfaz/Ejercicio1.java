@@ -45,10 +45,13 @@ public class Ejercicio1 extends javax.swing.JFrame {
         cmdMostrar = new javax.swing.JButton();
         cmdLlenaM = new javax.swing.JButton();
         cmdLlenaA = new javax.swing.JButton();
-        cmdBorrar = new javax.swing.JButton();
+        cmdCalcular = new javax.swing.JButton();
+        cmdBorrar1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextArea();
+        cmbOperaciones = new javax.swing.JComboBox<>();
+        jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,7 +93,7 @@ public class Ejercicio1 extends javax.swing.JFrame {
         });
         jPanel2.add(txtLongitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 140, 40));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 210, 160));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 210, 160));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -103,7 +106,7 @@ public class Ejercicio1 extends javax.swing.JFrame {
                 cmdCrearActionPerformed(evt);
             }
         });
-        jPanel3.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 120, 40));
+        jPanel3.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 40));
 
         cmdMostrar.setBackground(new java.awt.Color(153, 153, 255));
         cmdMostrar.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
@@ -113,7 +116,7 @@ public class Ejercicio1 extends javax.swing.JFrame {
                 cmdMostrarActionPerformed(evt);
             }
         });
-        jPanel3.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 120, 40));
+        jPanel3.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 120, 40));
 
         cmdLlenaM.setBackground(new java.awt.Color(153, 153, 255));
         cmdLlenaM.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
@@ -123,7 +126,7 @@ public class Ejercicio1 extends javax.swing.JFrame {
                 cmdLlenaMActionPerformed(evt);
             }
         });
-        jPanel3.add(cmdLlenaM, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, 40));
+        jPanel3.add(cmdLlenaM, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, 40));
 
         cmdLlenaA.setBackground(new java.awt.Color(153, 153, 255));
         cmdLlenaA.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
@@ -133,19 +136,29 @@ public class Ejercicio1 extends javax.swing.JFrame {
                 cmdLlenaAActionPerformed(evt);
             }
         });
-        jPanel3.add(cmdLlenaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 120, 40));
+        jPanel3.add(cmdLlenaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 120, 40));
 
-        cmdBorrar.setBackground(new java.awt.Color(153, 153, 255));
-        cmdBorrar.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        cmdBorrar.setText("Borrar");
-        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+        cmdCalcular.setBackground(new java.awt.Color(153, 153, 255));
+        cmdCalcular.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        cmdCalcular.setText("Calcular");
+        cmdCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdBorrarActionPerformed(evt);
+                cmdCalcularActionPerformed(evt);
             }
         });
-        jPanel3.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 120, 40));
+        jPanel3.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 120, 40));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 220, 350));
+        cmdBorrar1.setBackground(new java.awt.Color(153, 153, 255));
+        cmdBorrar1.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        cmdBorrar1.setText("Borrar");
+        cmdBorrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrar1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cmdBorrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 120, 40));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 290, 230));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -156,7 +169,21 @@ public class Ejercicio1 extends javax.swing.JFrame {
 
         jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 190, 150));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 230, 180));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 230, 180));
+
+        cmbOperaciones.setBackground(new java.awt.Color(153, 153, 255));
+        cmbOperaciones.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        cmbOperaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Suma", "Productoria", "Mayor", "Menor" }));
+        cmbOperaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbOperacionesActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmbOperaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 180, -1));
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Operaciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 280, 100));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagendefondo/istock_000019699924small.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -179,7 +206,7 @@ public class Ejercicio1 extends javax.swing.JFrame {
         int longitud;
         
         if(txtLongitud.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(this,"digite la longitud ","ERROR",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this,"por favor, digite la longitud del vector","ERROR",JOptionPane.WARNING_MESSAGE);
             txtLongitud.requestFocusInWindow();
             
         }else if(Integer.parseInt(txtLongitud.getText().trim())==0){
@@ -219,14 +246,48 @@ public class Ejercicio1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cmdMostrarActionPerformed
 
-    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+    private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
         
-        txtLongitud.setText("");
-        txtResultado.setText("");
-        v = null;
-        txtLongitud.requestFocusInWindow();
+        int res;
         
-    }//GEN-LAST:event_cmdBorrarActionPerformed
+        double suma=0, prod=1, mayor, menor; 
+        
+        res=cmbOperaciones.getSelectedIndex();
+        
+        switch(res){
+            case 0:
+                for (int i = 0; i < v.length; i++) {
+                    suma = suma + v[i];
+                }
+            txtResultado.setText("la sumatoria es: "+suma);
+            break;
+            case 1:
+                for (int i = 0; i < v.length; i++) {
+                    prod = prod * v[i];
+                }
+                txtResultado.setText("la productoria es: "+prod);
+                break;
+            case 2:
+                    mayor = v[0];
+                for (int i = 0; i < v.length; i++) {
+                    if(v[i] > mayor){
+                        mayor = v[i];
+                    }
+                }
+               txtResultado.setText("el mayor es: "+mayor);
+               break;
+            case 3:
+                menor = v[0];
+                for (int i = 0; i < v.length; i++) {
+                   if(v[i] < menor){
+                      menor = v[i]; 
+                   }     
+                }
+                txtResultado.setText("el menor es: "+menor);
+                break;
+        }
+        
+    }//GEN-LAST:event_cmdCalcularActionPerformed
 
     private void cmdLlenaAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenaAActionPerformed
         double n;
@@ -236,6 +297,19 @@ public class Ejercicio1 extends javax.swing.JFrame {
         }
         JOptionPane.showMessageDialog(this, "Vector Llenado Correctamente");
     }//GEN-LAST:event_cmdLlenaAActionPerformed
+
+    private void cmdBorrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrar1ActionPerformed
+        
+        txtLongitud.setText("");
+        txtResultado.setText("");
+        v = null;
+        txtLongitud.requestFocusInWindow();
+        
+    }//GEN-LAST:event_cmdBorrar1ActionPerformed
+
+    private void cmbOperacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOperacionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbOperacionesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,7 +347,9 @@ public class Ejercicio1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cmdBorrar;
+    private javax.swing.JComboBox<String> cmbOperaciones;
+    private javax.swing.JButton cmdBorrar1;
+    private javax.swing.JButton cmdCalcular;
     private javax.swing.JButton cmdCrear;
     private javax.swing.JButton cmdLlenaA;
     private javax.swing.JButton cmdLlenaM;
@@ -286,6 +362,7 @@ public class Ejercicio1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtLongitud;
     private javax.swing.JTextArea txtResultado;
