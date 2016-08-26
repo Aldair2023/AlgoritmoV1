@@ -219,7 +219,7 @@ public class Ejercicio1 extends javax.swing.JFrame {
             v =new double [longitud];
             JOptionPane.showMessageDialog(this,"vector creado exitosamente");
         }
-            
+        
     }//GEN-LAST:event_cmdCrearActionPerformed
 
     private void txtLongitudKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLongitudKeyTyped
@@ -244,6 +244,8 @@ public class Ejercicio1 extends javax.swing.JFrame {
             txtResultado.append(v[i]+"\n");
             
         }
+        
+        
     }//GEN-LAST:event_cmdMostrarActionPerformed
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
